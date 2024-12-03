@@ -1,13 +1,13 @@
-type Category = {
+type SubCategory = {
   id: string;
   title: string;
   image?: string;
-  children?: Category[];
+  parent: { id: string; title: string };
 };
 
-export type Response = {
+export type SubResponse = {
   count: number;
   next?: string | null;
   previous?: string | null;
-  results: Category[];
+  results: SubCategory[];
 };

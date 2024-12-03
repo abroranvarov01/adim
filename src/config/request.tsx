@@ -6,8 +6,8 @@ const request = axios.create({
 
 request.interceptors.request.use((config) => {
   const token = Cookies.get("token");
-  if (token) {
-    config.headers.Authorization = `Bearer ${token}`;
+  if (config.url !== "/api/admin-login/" && token) {
+    config.headers.Authorization = `Token ${token}`;
   }
   return config;
 });
