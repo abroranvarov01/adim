@@ -17,7 +17,6 @@ const CreateForm: React.FC<CreateFormProps> = ({
   initalValues,
 }) => {
   const formProps = isEdit ? { ...initalValues } : {};
-  console.log(isEdit, "isEdit");
   console.log(formProps, "formProps");
 
   const defaultFileList: UploadFile[] = [
@@ -28,6 +27,8 @@ const CreateForm: React.FC<CreateFormProps> = ({
       url: `${initalValues?.image}`,
     },
   ];
+  console.log(defaultFileList, "defaultFileList");
+
   return (
     <Card
       title="Create Category"

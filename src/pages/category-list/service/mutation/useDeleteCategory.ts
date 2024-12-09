@@ -8,7 +8,7 @@ export const useDeleteCategory = () => {
       return request.delete(`/category/${id}/`).then((res) => res.data);
     },
     onSuccess: () => {
-      client.invalidateQueries({ queryKey: ["category"] });
+      client.invalidateQueries({ queryKey: [`category`]});
     },
   });
 };

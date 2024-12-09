@@ -15,6 +15,7 @@ const CreateCategory: React.FC = () => {
   const [form] = useForm();
   const createSubmit = (data: { title: string; image: { file: RcFile } }) => {
     const formData = new FormData();
+
     formData.append("title", data?.title);
     if (data.image) {
       formData.append("image", data.image.file);

@@ -26,7 +26,7 @@ const SubCategoryList = () => {
         id: item.id,
         img: item.image,
         title: item.title,
-        parent: item.parent.title,
+        parent: item.parent?.title,
       };
     }) || [];
   const columns: ColumnType[] = [
@@ -60,7 +60,7 @@ const SubCategoryList = () => {
         <div style={{ display: "flex", gap: "10px" }}>
           <Button
             type="primary"
-            onClick={() => navigate(`/app/edit-category/${record.id}`)}
+            onClick={() => navigate(`/app/sub-category-edit/${record.id}`)}
           >
             Edit
           </Button>
@@ -78,6 +78,14 @@ const SubCategoryList = () => {
   return (
     <div>
       <div>
+        <Button
+          type="primary"
+          onClick={() => navigate("/app/sub-category-create")}
+          style={{ marginBottom: "20px" }}
+          variant="dashed"
+        >
+          Create Sub Category
+        </Button>
         <Table columns={columns} dataSource={dataSource} rowKey="id" />
       </div>
     </div>

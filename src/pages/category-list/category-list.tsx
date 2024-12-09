@@ -68,7 +68,7 @@ export const CategoryList = () => {
     <div className="table-wrapper">
       <Button
         onClick={() => navigate("/app/create-category")}
-        style={{ marginBottom: "10px" }}
+        style={{ marginBottom: "20px" }}
         type="primary"
         variant="dashed"
       >
