@@ -1,4 +1,8 @@
-import { NotificationOutlined, UserOutlined } from "@ant-design/icons";
+import {
+  NotificationOutlined,
+  UserOutlined,
+  BranchesOutlined,
+} from "@ant-design/icons";
 
 interface MenuItem {
   id: number;
@@ -19,5 +23,11 @@ export const data: MenuItem[] = [
     label: "Sub Category List",
     icon: UserOutlined,
     path: "/app/sub-category-list",
+  },
+  {
+    id: 3,
+    label: "Banner",
+    icon: BranchesOutlined,
+    path: "/app/banner",
   },
 ];

@@ -8,6 +8,9 @@ import CreateCategory from "../pages/create-category/create-category";
 import EditCategory from "../pages/edit-category/edit-category";
 import CreateSubCategory from "../pages/create-sub-category/create-subcategory";
 import EditSubcategory from "../pages/edit-subcategory/edit-subcategory";
+import Banner from "../pages/banner/banner";
+import CreateBanner from "../pages/create-banner/create-banne";
+import BannerEdit from "../pages/banner-edit/banner-edit";
 const Router = () => {
   return (
     <Routes>
@@ -20,6 +23,9 @@ const Router = () => {
         <Route path="edit-category/:id" element={<EditCategory />} />
         <Route path="sub-category-create" element={<CreateSubCategory />} />
         <Route path="sub-category-edit/:id" element={<EditSubcategory />} />
+        <Route path="banner" element={<Banner />} />
+        <Route path="create-banner" element={<CreateBanner />} />
+        <Route path="edit-banner/:id" element={<BannerEdit />} />
       </Route>
     </Routes>
   );

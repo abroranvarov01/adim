@@ -96,7 +96,6 @@ const EditSubcategory = () => {
       },
     });
   };
-
   const handleEditAtribute = (values: AttributeValuesType2) => {
     console.log(values, "values");
     const processedAttributes =
@@ -109,7 +108,6 @@ const EditSubcategory = () => {
             value_id: valueId[index]?.[subIndex] ?? null,
           })) ?? [],
       })) ?? [];
-
     editAtributeMutate(
       { attributes: processedAttributes, category_id: Number(SubId) },
       {
