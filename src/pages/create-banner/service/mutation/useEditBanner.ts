@@ -8,6 +8,7 @@ export const useEditBanner = (id: number) => {
     },
     onSuccess: () => {
       client.invalidateQueries({ queryKey: [`banner`] });
+      client.invalidateQueries({ queryKey: [`singleBanner`, id] });
     },
   });
 };

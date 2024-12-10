@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import BannerForm from "../../components/banner-form";
 import { useGetSingleBanner } from "../create-banner/service/query/useGetSingleBanner";
 import { BannerFormType } from "../create-banner/create-banne";
-import { useEditBanner } from "../category-list/service/mutation/useEditBanner";
+import { useEditBanner } from "../create-banner/service/mutation/useEditBanner";
 import { useNavigate } from "react-router-dom";
 const BannerEdit = () => {
   const navigate = useNavigate();
@@ -28,7 +28,7 @@ const BannerEdit = () => {
     bannerMutate(formData, {
       onSuccess: () => {
         message.success("Banner added successfully");
-        window.location.href = "/app/banner";
+        navigate("/app/banner");
       },
       onError: (error: any) => {
         message.error(`Failed to add banner: ${error.message}`);

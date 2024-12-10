@@ -11,6 +11,9 @@ import EditSubcategory from "../pages/edit-subcategory/edit-subcategory";
 import Banner from "../pages/banner/banner";
 import CreateBanner from "../pages/create-banner/create-banne";
 import BannerEdit from "../pages/banner-edit/banner-edit";
+import BrandList from "../pages/Brend/brand-list";
+import CreateBrand from "../pages/Brend/create-brand";
+import EditBrand from "../pages/Brend/edit-brand";
 const Router = () => {
   return (
     <Routes>
@@ -26,6 +29,9 @@ const Router = () => {
         <Route path="banner" element={<Banner />} />
         <Route path="create-banner" element={<CreateBanner />} />
         <Route path="edit-banner/:id" element={<BannerEdit />} />
+        <Route path="brand-list" element={<BrandList />} />
+        <Route path="create-brand" element={<CreateBrand />} />
+        <Route path="edit-brand/:id" element={<EditBrand />} />
       </Route>
     </Routes>
   );

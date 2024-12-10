@@ -131,6 +131,8 @@ const EditSubcategory = () => {
     <div>
       <Tabs
         defaultActiveKey="1"
+        onChange={(key) => setActiveKey(key)}
+        activeKey={activeKey}
         items={[
           {
             label: "Edit Sub Category",

@@ -3,8 +3,9 @@ import { UploadOutlined } from "@ant-design/icons";
 import React from "react";
 import { initalValuesType } from "../pages/edit-category/edit-category";
 import { UploadFile } from "antd/es/upload/interface";
+
 interface CreateFormProps {
-  createSubmit: (data: any) => void;
+  createSubmit: (data: any) => void; 
   form: any;
   isEdit?: boolean;
   initalValues?: initalValuesType;
@@ -16,17 +17,20 @@ const CreateForm: React.FC<CreateFormProps> = ({
   isEdit,
   initalValues,
 }) => {
-  const formProps = isEdit ? { ...initalValues } : {};
+  const formProps = isEdit ? initalValues : {};
   console.log(formProps, "formProps");
 
-  const defaultFileList: UploadFile[] = [
-    {
-      uid: "-1",
-      name: `${initalValues?.title}`,
-      status: "done",
-      url: `${initalValues?.image}`,
-    },
-  ];
+  const defaultFileList: UploadFile[] =
+    isEdit && initalValues?.image
+      ? [
+          {
+            uid: "-1",
+            name: `${initalValues.title}`,
+            status: "done",
+            url: `${initalValues.image}`,
+          },
+        ]
+      : [];
   console.log(defaultFileList, "defaultFileList");
 
   return (
@@ -43,7 +47,7 @@ const CreateForm: React.FC<CreateFormProps> = ({
     >
       <Form
         form={form}
-        initialValues={{ ...formProps }}
+        initialValues={formProps}
         onFinish={createSubmit}
         layout="vertical"
         style={{
@@ -67,12 +71,12 @@ const CreateForm: React.FC<CreateFormProps> = ({
             </Form.Item>
           </Col>
           <Col span={24}>
-            <Form.Item label={"img"} name={"image"} valuePropName="file">
+            <Form.Item label="Image" name="image">
               <Upload
                 listType="picture"
-                defaultFileList={isEdit ? defaultFileList : []}
+                defaultFileList={defaultFileList}
                 beforeUpload={() => false}
-                accept="image"
+                accept="image/*"
                 maxCount={1}
               >
                 <Button type="primary" icon={<UploadOutlined />}>

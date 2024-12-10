@@ -2,6 +2,8 @@ import {
   NotificationOutlined,
   UserOutlined,
   BranchesOutlined,
+  GithubFilled,
+  ProductFilled,
 } from "@ant-design/icons";
 
 interface MenuItem {
@@ -29,5 +31,17 @@ export const data: MenuItem[] = [
     label: "Banner",
     icon: BranchesOutlined,
     path: "/app/banner",
+  },
+  {
+    id: 4,
+    label: "Brand",
+    icon: GithubFilled,
+    path: "/app/brand-list",
+  },
+  {
+    id: 5,
+    label: "Product",
+    icon: ProductFilled,
+    path: "/app/product-list",
   },
 ];

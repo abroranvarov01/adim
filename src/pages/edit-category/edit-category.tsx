@@ -113,6 +113,7 @@ const EditCategory = () => {
   return (
     <div>
       <Tabs
+        onChange={(key) => setActiveKey(key)}
         activeKey={activeKey}
         defaultActiveKey="1"
         items={[
