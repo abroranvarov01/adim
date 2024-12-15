@@ -5,7 +5,7 @@ import { initalValuesType } from "../pages/edit-category/edit-category";
 import { UploadFile } from "antd/es/upload/interface";
 
 interface CreateFormProps {
-  createSubmit: (data: any) => void; 
+  createSubmit: (data: any) => void;
   form: any;
   isEdit?: boolean;
   initalValues?: initalValuesType;
@@ -31,7 +31,6 @@ const CreateForm: React.FC<CreateFormProps> = ({
           },
         ]
       : [];
-  console.log(defaultFileList, "defaultFileList");
 
   return (
     <Card

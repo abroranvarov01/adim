@@ -1,18 +1,23 @@
 import { Button, Image, Table } from "antd";
 import { ColumnType } from "antd/es/table";
 import { useNavigate } from "react-router-dom";
-
+import { useGetProducts } from "./service/query/useGetProducts";
+import { useDeleteProduct } from "./service/mutation/useDeleteProduct";
 const ProductList = () => {
+  const { mutate: deleteProduct } = useDeleteProduct();
+  const { data: ProductData } = useGetProducts();
   const navigate = useNavigate();
-  // const dataSource =
-  //   BrandData?.results.map((item) => {
-  //     return {
-  //       key: item.id,
-  //       id: item.id,
-  //       img: item.image,
-  //       title: item.title,
-  //     };
-  //   }) || [];
+  console.log(ProductData, "ProductData");
+
+  const dataSource =
+    ProductData?.results.map((item) => {
+      return {
+        key: item.id,
+        id: item.id,
+        img: item.image,
+        title: item.title,
+      };
+    }) || [];
   const columns: ColumnType[] = [
     {
       title: "ID",
@@ -37,12 +42,17 @@ const ProductList = () => {
       render: (_, record) => (
         <div style={{ display: "flex", gap: "10px" }}>
           <Button
-            onClick={() => navigate(`/app/edit-brand/${record.id}`)}
+            onClick={() => navigate(`/app/edit-product/${record.id}`)}
             type="primary"
           >
             Edit
           </Button>
-          <Button type="primary" onClick={() => {}}>
+          <Button
+            type="primary"
+            onClick={() => {
+              deleteProduct(record.id);
+            }}
+          >
             Delete
           </Button>
           <Button type="primary">Variants</Button>
@@ -55,14 +65,14 @@ const ProductList = () => {
     <div>
       <Button
         onClick={() => {
-          navigate("/app/create-brand");
+          navigate("/app/create-product");
         }}
         style={{ marginBottom: "20px" }}
         type="primary"
       >
-        Create Brand
+        Create Product
       </Button>
-      <Table  columns={columns} rowKey="id" />
+      <Table dataSource={dataSource} columns={columns} rowKey="id" />
     </div>
   );
 };

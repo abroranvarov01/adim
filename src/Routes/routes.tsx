@@ -14,6 +14,9 @@ import BannerEdit from "../pages/banner-edit/banner-edit";
 import BrandList from "../pages/Brend/brand-list";
 import CreateBrand from "../pages/Brend/create-brand";
 import EditBrand from "../pages/Brend/edit-brand";
+import ProductList from "../pages/product/product-list";
+import CreateProduct from "../pages/product/create-product";
+import ProductEdit from "../pages/product/product-edit";
 const Router = () => {
   return (
     <Routes>
@@ -32,6 +35,9 @@ const Router = () => {
         <Route path="brand-list" element={<BrandList />} />
         <Route path="create-brand" element={<CreateBrand />} />
         <Route path="edit-brand/:id" element={<EditBrand />} />
+        <Route path="product-list" element={<ProductList />} />
+        <Route path="create-product" element={<CreateProduct />} />
+        <Route path="edit-product/:id" element={<ProductEdit />} />
       </Route>
     </Routes>
   );
